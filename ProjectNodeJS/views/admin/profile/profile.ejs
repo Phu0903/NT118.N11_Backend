@@ -1,0 +1,83 @@
+<% include ../playout/header.ejs %>
+    <!-- END TOPBAR -->
+    <!-- START CONTAINER -->
+    <div class="page-container row-fluid container-fluid">
+        <!-- SIDEBAR - START -->
+
+        <% include ../playout/menu.ejs %>
+
+
+            <!--  SIDEBAR - END -->
+            <!-- START CONTENT -->
+            <section id="main-content" class=" ">
+                <section class="wrapper main-wrapper row">
+                    <div class="clearfix"></div>
+                    <div class="col-lg-12">
+                        <section class="box">
+                            <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+                                rel="stylesheet" id="bootstrap-css">
+                            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+                            <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+                            <!------ Include the above in your HEAD tag ---------->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                        <div class="well well-sm">
+                                            <div class="row">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <img id="avatar1" class="img-rounded img-responsive" style="height:200px!important"/>
+                                                </div>
+                                                <div class="col-sm-6 col-md-8">
+                                                    <h4 style="font-size: 40px;">
+                                                        <%=user.FullName %>
+                                                    </h4>
+                                                    <small class="location-profile"><cite
+                                                            title="San Francisco, USA">Trường đại học công nghệ
+                                                            thông tin<i class="glyphicon glyphicon-map-marker">
+                                                            </i></cite></small>
+                                                    <p>
+                                                        <i
+                                                            class="glyphicon glyphicon-envelope"></i>18520446@gm.uit.edu.vn
+                                                        <br />
+                                                        <i class="glyphicon glyphicon-globe"></i><a
+                                                            href="http://www.jquery2dotnet.com">https://github.com/</a>
+                                                        <br />
+                                                        <i class="glyphicon glyphicon-gift"></i>June 02, 1988
+                                                        <form action="/admin/edit-user?_id=<%=user._id  %> " method="post" enctype="multipart/form-data">
+                                                            <b>Thêm ảnh đại diện</b><input name="image" type="file"/>
+                                                            <button type="submit" class="btn btn-primary" onclick="redirectThisPage()">Save</Button>
+                                                        </form>
+                                                    </p>
+                                                    <!-- Split button -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </section>
+                    </div>
+                </section>
+            </section>
+            <!-- END CONTENT -->
+            <div class="chatapi-windows ">
+
+            </div>
+
+            <% include ../playout/footer.ejs %>
+                <script src="TT_Admin/assets/plugins/datatables/js/jquery.dataTables.min.js"
+                    type="text/javascript"></script>
+                <script src="TT_Admin/assets/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js"
+                    type="text/javascript"></script>
+                <script src="TT_Admin/assets/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js"
+                    type="text/javascript"></script>
+                <script
+                    src="TT_Admin/assets/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.js"
+                    type="text/javascript"></script>
+                <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+                <script>
+                    function redirectThisPage() {
+                        location.href = "admin/all-user";
+                    }
+                </script>

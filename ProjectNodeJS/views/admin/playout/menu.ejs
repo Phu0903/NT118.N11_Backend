@@ -1,0 +1,67 @@
+<div class="page-sidebar pagescroll">
+    <!-- MAIN MENU - START -->
+    <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+        <!-- USER INFO - START -->
+        <div class="profile-info row">
+            <div class="profile-image col-xs-4">
+                <a href="ui-profile.html">
+                    <img id="avatar_" class="img-responsive img-circle avatar">
+                </a>
+            </div>
+            <div class="profile-details col-xs-8">
+                <h3>
+                    <a href="ui-profile.html" class="name" id="name"></a>
+                    <!-- Available statuses: online, idle, busy, away and offline -->
+                    <span class="profile-status online"></span>
+                </h3>
+                <p class="profile-title">Admin</p>
+            </div>
+        </div>
+        <!-- USER INFO - END -->
+        <ul class='wraplist'>
+            <li class='menusection'>Main</li>
+            <li class=<%=isOpen[0] %>>
+                <a href="/admin/home">
+                    <i class="fa fa-tachometer-alt"></i>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li class=<%=isOpen[1] %>>
+                <a href="/admin/all-account">
+                    <i class="fa fa-user-circle"></i>
+                    <span class="title">Account</span>
+                </a>
+            </li>
+            <li class=<%=isOpen[2] %>>
+                <a href="/admin/all-user">
+                    <i class="fa fa-users"></i>
+                    <span class="title">User</span>
+                </a>
+            </li>
+            <li class=<%=isOpen[3] %>>
+                <a href="/admin/all-post">
+                    <i class="fa fa-newspaper"></i>
+                    <span class="title">Post</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- MAIN MENU - END -->
+</div>
+<script>
+    axios({
+        method: "get",
+        url: "http://localhost:3000/admin/getAccount?_id=" + ' '
+    }).then((data) => {
+        document.getElementById("name").innerHTML = data.data.data.FullName
+        if (data.data.data.urlImage) {
+            document.getElementById("avatar").src = data.data.data.urlImage
+            document.getElementById("avatar_").src = data.data.data.urlImage
+        }
+        else {
+            document.getElementById("avatar").src = "https://image.flaticon.com/icons/png/512/147/147144.png"
+            document.getElementById("avatar_").src = "https://image.flaticon.com/icons/png/512/147/147144.png"
+        }
+    })
+</script>
